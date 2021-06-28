@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ZDM Manager - Pracownicy fizyczni</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+    <!--	<style>-->
+
+    <!--</style>-->
+</head>
+<body>
+<header>
+    <h2>ZDM Manager</h2>
+    <h4>Dział pojazdów budowlanych</h4>
+</header>
+
+<section>
+    <nav>
+        <ul>
+            <li><a href="/">Strona główna</a></li>
+            <li><a href="/pojazdy">Pojazdy</a></li>
+            <li><a href="/pracownik">Pracownicy fizyczni</a></li>
+            <li><a href="/wyjazd">Księga wyjazdów</a></li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </nav>
+
+    <article>
+
+        <h4>Pracownicy fizyczni</h4>
+
+        <p>Pracownicy fizyczni są uprawnieni do wyjazdu pojazdem służbowym lub budowlanym</p>
+        <p></p>
+
+        <!-- Table -->
+        <table border="1" cellpadding="10">
+
+            <!-- Table header -->
+            <thead>
+            <tr>
+                <th>Nr pracownika</th>
+                <th>Nazwisko</th>
+                <th>Imie</th>
+                <th>Nr telefonu</th>
+                <th>Kurs maszyn budowlanych</th>
+                <th>Dodatkowe ubezpieczenie</th>
+            </tr>
+            </thead>
+
+            <!-- Table body -->
+            <tbody>
+            <tr th:each="pracownik : ${listPracownik}">
+                <td th:text="${pracownik.nr_pracownika}">nr_pracownika</td>
+                <td th:text="${pracownik.nazwisko}">nazwisko</td>
+                <td th:text="${pracownik.imie}">imie</td>
+                <td th:text="${pracownik.nr_telefonu}">imie</td>
+                <td th:text="${pracownik.flaga_kurs_maszyn_budowlanych}">kurs_maszyn_budowlanych</td>
+                <td th:text="${pracownik.flaga_dodatkowe_ubezpieczenie}">dodatkowe_ubezpieczenie</td>
+            </tr>
+            </tbody>
+        </table>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </article>
+</section>
+
+<footer>
+    <p>BDBT 21L - ZDM Manager - Karol Chodowski, Damian Prochenka</p>
+</footer>
+
+</body>
+</html>
+

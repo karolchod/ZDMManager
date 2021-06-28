@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>ZDM Manager - Pojazdy</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="style.css" rel="stylesheet" type="text/css">
+
+  <!--	<style>-->
+
+  <!--</style>-->
+</head>
+<body>
+<header>
+  <h2>ZDM Manager</h2>
+  <h4>Dział pojazdów budowlanych</h4>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li><a href="/">Strona główna</a></li>
+      <li><a href="/pojazdy">Pojazdy</a></li>
+      <li><a href="/pracownik">Pracownicy fizyczni</a></li>
+      <li><a href="/wyjazd">Księga wyjazdów</a></li>
+    </ul>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+  </nav>
+
+  <article>
+
+    <h4>Księga wyjazdów</h4>
+
+    <p>Każdy pracownik obsługujący pojazd musi być odnotowany w księdze wyjazdów</p>
+    <p></p>
+
+    <a href="/newWyjazd">Dodaj nowy wyjazd</a>
+    <p></p>
+
+    <!-- Table -->
+    <table border="1" cellpadding="10">
+
+      <!-- Table header -->
+      <thead>
+      <tr>
+        <th>Data obsługi</th>
+        <th>Nr pracownika</th>
+        <th>Nazwisko</th>
+        <th>Imie</th>
+        <th>Nr pojazdu</th>
+        <th>Nr rejestracyjny</th>
+        <th>Marka</th>
+        <th>Rodzaj pojazdu</th>
+        <th>Akcja</th>
+      </tr>
+      </thead>
+
+      <!-- Table body -->
+      <tbody>
+      <tr th:each="wyjazd : ${listWyjazd}">
+        <td th:text="${wyjazd.data_obslugi}">data</td>
+        <td th:text="${wyjazd.nr_pracownika}">nr_pracownika</td>
+        <td th:text="${wyjazd.nazwisko}">nazwisko</td>
+        <td th:text="${wyjazd.imie}">imie</td>
+        <td th:text="${wyjazd.nr_pojazdu}">nr_pojazdu</td>
+        <td th:text="${wyjazd.nr_rejestracyjny}">nr_rejestracyjny</td>
+        <td th:text="${wyjazd.marka}">marka</td>
+        <td th:text="${wyjazd.rodzaj_pojazdu}">rodzaj</td>
+
+        <td>
+          <a th:href="@{'/deleteWyjazd/'+${wyjazd.data_obslugi}+'/'+${wyjazd.nr_pojazdu}+'/'+${wyjazd.nr_pracownika}}">Usuń</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+  </article>
+</section>
+
+<footer>
+  <p>BDBT 21L - ZDM Manager - Karol Chodowski, Damian Prochenka</p>
+</footer>
+
+</body>
+</html>
+

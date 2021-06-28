@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ZDM Manager - Edytowanie pojazdu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <h2>ZDM Manager</h2>
+    <h4>Dział pojazdów budowlanych</h4>
+</header>
+
+<section>
+    <nav>
+        <ul>
+            <li><a href="/">Strona główna</a></li>
+            <li><a href="/pojazdy">Pojazdy</a></li>
+            <li><a href="/pracownik">Pracownicy fizyczni</a></li>
+            <li><a href="/wyjazd">Księga wyjazdów</a></li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </nav>
+
+    <article>
+
+        <h4>Edycja pojazdu</h4>
+        <br>
+        <form action="#" th:action="@{/updatePojazd}" th:object="${pojazd}" method="post">
+
+            <!-- Table -->
+            <table border="1" cellpadding="10">
+
+                <tr>
+                    <td>Nr pojazdu</td>
+                    <td><input type="text" th:field="*{nr_pojazdu}" readonly="readonly"></td>
+                </tr>
+
+                <tr>
+                    <td>Marka</td>
+                    <td><input type="text" th:field="*{marka}"></td>
+                </tr>
+                <tr>
+                    <td>Rok produkcji</td>
+                    <td><input type="text" th:field="*{rok_produkcji}"></td>
+                </tr>
+                <tr>
+                    <td>Nr rejestracyjny</td>
+                    <td><input type="text" th:field="*{nr_rejestracyjny}"></td>
+                </tr>
+                <tr>
+                    <td>Rodzaj pojazdu</td>
+                    <td><input type="text" th:field="*{rodzaj_pojazdu}"></td>
+                </tr>
+                <tr>
+                    <td>Nr zarzadu</td>
+                    <td><input type="text" th:field="*{nr_zarzadu}" readonly="readonly"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <button type="submit">Zapisz</button>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+
+
+    </article>
+</section>
+
+<footer>
+    <p>BDBT 21L - ZDM Manager - Karol Chodowski, Damian Prochenka</p>
+</footer>
+
+</body>
+</html>
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ZDM Manager - Pojazdy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+    <!--	<style>-->
+
+    <!--</style>-->
+</head>
+<body>
+<header>
+    <h2>ZDM Manager</h2>
+    <h4>Dział pojazdów budowlanych</h4>
+</header>
+
+<section>
+    <nav>
+        <ul>
+            <li><a href="/">Strona główna</a></li>
+            <li><a href="/pojazdy">Pojazdy</a></li>
+            <li><a href="/pracownik">Pracownicy fizyczni</a></li>
+            <li><a href="/wyjazd">Księga wyjazdów</a></li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </nav>
+
+    <article>
+
+        <h4>Pojazdy znajdujące się w bazie</h4>
+
+        <a href="/newPojazd">Dodaj nowy pojazd</a>
+        <p>&nbsp;</p>
+
+        <!-- Table -->
+        <table border="1" cellpadding="10">
+
+            <!-- Table header -->
+            <thead>
+            <tr>
+                <th>Nr pojazdu</th>
+                <th>Marka</th>
+                <th>Rok produkcji</th>
+                <th>Nr rejestracyjny</th>
+                <th>Rodzaj pojazdu</th>
+                <th>Nr zarzadu</th>
+                <th>Akcja</th>
+            </tr>
+            </thead>
+
+            <!-- Table body -->
+            <tbody>
+            <tr th:each="pojazd : ${listPojazd}">
+                <td th:text="${pojazd.nr_pojazdu}">nr_pojazdu</td>
+                <td th:text="${pojazd.marka}">marka</td>
+                <td th:text="${pojazd.rok_produkcji}">rok_produkcji</td>
+                <td th:text="${pojazd.nr_rejestracyjny}">nr_rejestracyjny</td>
+                <td th:text="${pojazd.rodzaj_pojazdu}">rodzaj_pojazdu</td>
+                <td th:text="${pojazd.nr_zarzadu}">rodzaj_pojazdu</td>
+                <td>
+                    <a th:href="@{'/editPojazd/'+${pojazd.nr_pojazdu}}">Edytuj</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/deletePojazd/'+${pojazd.nr_pojazdu}}">Usuń</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </article>
+</section>
+
+<footer>
+    <p>BDBT 21L - ZDM Manager - Karol Chodowski, Damian Prochenka</p>
+</footer>
+
+</body>
+</html>
+

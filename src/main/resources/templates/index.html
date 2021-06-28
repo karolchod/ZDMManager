@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ZDM Manager - Strona główna</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+    <!--	<style>-->
+
+    <!--</style>-->
+</head>
+<body>
+<header>
+    <h2>ZDM Manager</h2>
+    <h4>Dział pojazdów budowlanych</h4>
+</header>
+
+<section>
+    <nav>
+        <ul>
+            <li><a href="/">Strona główna</a></li>
+            <li><a href="/pojazdy">Pojazdy</a></li>
+            <li><a href="/pracownik">Pracownicy fizyczni</a></li>
+            <li><a href="/wyjazd">Księga wyjazdów</a></li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+
+    </nav>
+
+
+    <article>
+
+        <h4>Witamy w aplikacji Zarządu Dróg Miejskich</h4>
+
+        <!-- Table -->
+        <table border="1" cellpadding="10">
+
+            <!-- Table header -->
+            <thead>
+            <tr>
+                <!-- 		<th>nr_pojazdu</th>
+                <th>marka</th>
+                <th>rok_produkcji</th>
+                <th>nr_rejestracyjny</th>
+                <th>rodzaj_pojazdu</th> -->
+                <th>Nr_zarzadu</th>
+                <th>Nazwa</th>
+                <th>Data_zalozenia</th>
+                <th>Adres_strony_www</th>
+                <th>nr_adresu</th>
+            </tr>
+            </thead>
+
+            <!-- Table body -->
+            <tbody>
+            <tr th:each="jednostkizdm : ${listJednostkaZDM}">
+                <!-- <td th:text="${pojazd.nr_pojazdu}">nr_pojazdu</td>
+                <td th:text="${pojazd.marka}">marka</td>
+                <td th:text="${pojazd.rok_produkcji}">rok_produkcji</td>
+                <td th:text="${pojazd.nr_rejestracyjny}">nr_rejestracyjny</td>
+                <td th:text="${pojazd.rodzaj_pojazdu}">rodzaj_pojazdu</td> -->
+                <td th:text="${jednostkizdm.nr_zarzadu}">Nr_zarzadu</td>
+                <td th:text="${jednostkizdm.nazwa}">Nazwa</td>
+                <td th:text="${jednostkizdm.data_zalozenia}">Data_zalozenia</td>
+                <td th:text="${jednostkizdm.adres_strony_www}">Adres_strony_www</td>
+                <td th:text="${jednostkizdm.nr_adresu}">Adres_strony_www</td>
+
+            </tr>
+            </tbody>
+
+        </table>
+    </article>
+</section>
+
+<footer>
+    <p>BDBT 21L - ZDM Manager - Karol Chodowski, Damian Prochenka</p>
+</footer>
+
+</body>
+</html>

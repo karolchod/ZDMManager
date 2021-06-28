@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ZDM Manager - Dodawanie wyjazdu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+    <!--	<style>-->
+
+    <!--</style>-->
+</head>
+<body>
+<header>
+    <h2>ZDM Manager</h2>
+    <h4>Dział pojazdów budowlanych</h4>
+</header>
+
+<section>
+    <nav>
+        <ul>
+            <li><a href="/">Strona główna</a></li>
+            <li><a href="/pojazdy">Pojazdy</a></li>
+            <li><a href="/pracownik">Pracownicy fizyczni</a></li>
+            <li><a href="/wyjazd">Księga wyjazdów</a></li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </nav>
+
+    <article>
+
+        <h4>Dodawanie nowego wyjazdu</h4>
+        <br>
+        <form action="#" th:action="@{saveWyjazd}" th:object="${wyjazd}" method="post">
+
+            <!-- Table -->
+            <table border="1" cellpadding="10">
+                <tr>
+                    <td>Data</td>
+                    <td><input type="text" th:field="*{data_obslugi}"></td>
+                </tr>
+                <tr>
+                    <td>Nr pracownika</td>
+                    <td>
+                        <select th:field="*{nr_pracownika}">
+<!--                            <option value="">Wybierz...</option>-->
+                            <option th:each="pracownik : ${listPracownik}" th:value="${pracownik.nr_pracownika}" th:text="${pracownik.nr_pracownika + '. ' + pracownik.nazwisko + ', ' + pracownik.imie}"></option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Nr pojazdu</td>
+                    <td>
+                        <select th:field="*{nr_pojazdu}">
+<!--                            <option value="">Wybierz...</option>-->
+                            <option th:each="pojazd : ${listPojazd}" th:value="${pojazd.nr_pojazdu}" th:text="${pojazd.nr_pojazdu + '. ' + pojazd.nr_rejestracyjny + ', ' + pojazd.marka + ', ' + pojazd.rodzaj_pojazdu}"></option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <button type="submit">Dodaj</button>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+
+
+    </article>
+</section>
+
+<footer>
+    <p>BDBT 21L - ZDM Manager - Karol Chodowski, Damian Prochenka</p>
+</footer>
+
+</body>
+</html>
+
