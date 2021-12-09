@@ -2,7 +2,7 @@
 Oracle database with web management panel
 
 ## General info
-Database for ZDM (municipal road administration). App gives access to tables, associated with company parking management. Security guard of arking can manage lists of vehicles, employees and history of using company vehicles.
+Database for ZDM (municipal road administration). App gives access to tables, associated with company parking management. Security guard of parking can manage lists of vehicles, employees and history of users who used company owned vehicles.
 
 ## Technologies
 Project is created with:
